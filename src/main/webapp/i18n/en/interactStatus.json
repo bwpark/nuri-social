@@ -1,0 +1,9 @@
+{
+  "nuriSocialApp": {
+    "InteractStatus": {
+      "null": "",
+      "ORIGINATE": "ORIGINATE",
+      "READED": "READED"
+    }
+  }
+}

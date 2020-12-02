@@ -1,0 +1,28 @@
+{
+  "nuriSocialApp": {
+    "avatarCategory": {
+      "home": {
+        "title": "Avatar Categories",
+        "createLabel": "Create a new Avatar Category",
+        "createOrEditLabel": "Create or edit a Avatar Category",
+        "notFound": "No Avatar Categories found"
+      },
+      "created": "A new Avatar Category is created with identifier {{ param }}",
+      "updated": "A Avatar Category is updated with identifier {{ param }}",
+      "deleted": "A Avatar Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Avatar Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Avatar Category"
+      },
+      "path": "Path",
+      "name": "Name",
+      "icon": "Icon",
+      "description": "Description",
+      "status": "Status",
+      "created": "Created",
+      "modified": "Modified"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "nuriSocialApp": {
+    "category": {
+      "home": {
+        "title": "Categories",
+        "createLabel": "Create a new Category",
+        "createOrEditLabel": "Create or edit a Category",
+        "notFound": "No Categories found"
+      },
+      "created": "A new Category is created with identifier {{ param }}",
+      "updated": "A Category is updated with identifier {{ param }}",
+      "deleted": "A Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Category"
+      },
+      "path": "Path",
+      "name": "Name",
+      "icon": "Icon",
+      "description": "Description",
+      "hitAndSort": "Hit And Sort",
+      "respect": "Respect",
+      "diss": "Diss",
+      "join": "Join",
+      "status": "Status",
+      "created": "Created",
+      "modified": "Modified",
+      "me": "Me"
+    }
+  }
+}

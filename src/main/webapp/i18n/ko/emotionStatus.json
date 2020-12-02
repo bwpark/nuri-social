@@ -1,0 +1,10 @@
+{
+  "nuriSocialApp": {
+    "EmotionStatus": {
+      "null": "",
+      "RESPECT": "1",
+      "DISS": "-1",
+      "NONE": "0"
+    }
+  }
+}

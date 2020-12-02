@@ -1,0 +1,10 @@
+{
+  "nuriSocialApp": {
+    "AvatarStatus": {
+      "null": "",
+      "ACTIVATED": "ACTIVATED",
+      "VALID": "VALID",
+      "INVALID": "INVALID"
+    }
+  }
+}
