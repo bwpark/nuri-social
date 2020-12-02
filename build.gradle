@@ -226,6 +226,11 @@ dependencies {
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunit_junit5_version}"
     testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+  
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
 }
 
 if (project.hasProperty("gae")) {

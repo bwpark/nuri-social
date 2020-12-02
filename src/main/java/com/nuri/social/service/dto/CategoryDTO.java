@@ -1,189 +1,64 @@
 package com.nuri.social.service.dto;
 
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.nuri.social.domain.enumeration.CategoryStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * A DTO for the {@link com.nuri.social.domain.Category} entity.
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class CategoryDTO implements Serializable {
-    
-    private String id;
 
-    @NotNull
-    @Size(max = 128)
-    private String path;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    @Size(max = 128)
-    private String name;
+	private String id;
 
-    @Size(max = 1024)
-    private String icon;
+	@NotNull
+	@Size(max = 128)
+	private String path;
 
-    @Size(max = 1024)
-    private String description;
+	@NotNull
+	@Size(max = 128)
+	private String name;
 
-    private Integer hitAndSort;
+	@Size(max = 1024)
+	private String icon;
 
-    private Integer respect;
+	@Size(max = 1024)
+	private String description;
 
-    private Integer diss;
+	private Integer hitAndSort;
 
-    private Integer join;
+	private Integer respect;
 
-    @NotNull
-    private CategoryStatus status;
+	private Integer diss;
 
-    @NotNull
-    private Instant created;
+	private Integer join;
 
-    @NotNull
-    private Instant modified;
+	@NotNull
+	private CategoryStatus status;
 
+	@NotNull
+	private Instant created;
 
-    private String meId;
-    
-    public String getId() {
-        return id;
-    }
+	@NotNull
+	private Instant modified;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getHitAndSort() {
-        return hitAndSort;
-    }
-
-    public void setHitAndSort(Integer hitAndSort) {
-        this.hitAndSort = hitAndSort;
-    }
-
-    public Integer getRespect() {
-        return respect;
-    }
-
-    public void setRespect(Integer respect) {
-        this.respect = respect;
-    }
-
-    public Integer getDiss() {
-        return diss;
-    }
-
-    public void setDiss(Integer diss) {
-        this.diss = diss;
-    }
-
-    public Integer getJoin() {
-        return join;
-    }
-
-    public void setJoin(Integer join) {
-        this.join = join;
-    }
-
-    public CategoryStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(CategoryStatus status) {
-        this.status = status;
-    }
-
-    public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
-
-    public Instant getModified() {
-        return modified;
-    }
-
-    public void setModified(Instant modified) {
-        this.modified = modified;
-    }
-
-    public String getMeId() {
-        return meId;
-    }
-
-    public void setMeId(String avatarId) {
-        this.meId = avatarId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof CategoryDTO)) {
-            return false;
-        }
-
-        return id != null && id.equals(((CategoryDTO) o).id);
-    }
-
-    @Override
-    public int hashCode() {
-        return 31;
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "CategoryDTO{" +
-            "id=" + getId() +
-            ", path='" + getPath() + "'" +
-            ", name='" + getName() + "'" +
-            ", icon='" + getIcon() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", hitAndSort=" + getHitAndSort() +
-            ", respect=" + getRespect() +
-            ", diss=" + getDiss() +
-            ", join=" + getJoin() +
-            ", status='" + getStatus() + "'" +
-            ", created='" + getCreated() + "'" +
-            ", modified='" + getModified() + "'" +
-            ", meId='" + getMeId() + "'" +
-            "}";
-    }
+	private String meId;
 }

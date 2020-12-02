@@ -2,19 +2,22 @@ package com.nuri.social.config;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
-import com.google.common.base.Predicates;
-import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.JHipsterProperties;
-import io.github.jhipster.config.apidoc.customizer.SwaggerCustomizer;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+
+import com.google.common.base.Predicates;
+
+import io.github.jhipster.config.JHipsterConstants;
+import io.github.jhipster.config.JHipsterProperties;
+import io.github.jhipster.config.apidoc.customizer.SwaggerCustomizer;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -25,40 +28,23 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Profile(JHipsterConstants.SPRING_PROFILE_SWAGGER)
 public class OpenApiConfiguration {
 
-    @Bean
-    public SwaggerCustomizer noApiFirstCustomizer() {
-        return docket -> docket.select().apis(Predicates.not(RequestHandlerSelectors.basePackage("com.nuri.social.web.api")));
-    }
+	@Bean
+	public SwaggerCustomizer noApiFirstCustomizer() {
+		return docket -> docket.select().apis(Predicates.not(RequestHandlerSelectors.basePackage("com.nuri.social.web.api")));
+	}
 
-    @Bean
-    public Docket apiFirstDocket(JHipsterProperties jHipsterProperties) {
-        JHipsterProperties.Swagger properties = jHipsterProperties.getSwagger();
-        Contact contact = new Contact(properties.getContactName(), properties.getContactUrl(), properties.getContactEmail());
+	@Bean
+	public Docket apiFirstDocket(JHipsterProperties jHipsterProperties) {
+		JHipsterProperties.Swagger properties = jHipsterProperties.getSwagger();
+		Contact contact = new Contact(properties.getContactName(), properties.getContactUrl(), properties.getContactEmail());
 
-        ApiInfo apiInfo = new ApiInfo(
-            "API First " + properties.getTitle(),
-            properties.getDescription(),
-            properties.getVersion(),
-            properties.getTermsOfServiceUrl(),
-            contact,
-            properties.getLicense(),
-            properties.getLicenseUrl(),
-            new ArrayList<>()
-        );
+		ApiInfo apiInfo = new ApiInfo("API First " + properties.getTitle(), properties.getDescription(), properties.getVersion(), properties.getTermsOfServiceUrl(),
+				contact, properties.getLicense(), properties.getLicenseUrl(), new ArrayList<>());
 
-        return new Docket(DocumentationType.SWAGGER_2)
-            .groupName("openapi")
-            .host(properties.getHost())
-            .protocols(new HashSet<>(Arrays.asList(properties.getProtocols())))
-            .apiInfo(apiInfo)
-            .useDefaultResponseMessages(properties.isUseDefaultResponseMessages())
-            .forCodeGeneration(true)
-            .directModelSubstitute(ByteBuffer.class, String.class)
-            .genericModelSubstitutes(ResponseEntity.class)
-            .ignoredParameterTypes(Pageable.class)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.nuri.social.web.api"))
-            .paths(regex(properties.getDefaultIncludePattern()))
-            .build();
-    }
+		return new Docket(DocumentationType.SWAGGER_2).groupName("openapi").host(properties.getHost())
+				.protocols(new HashSet<>(Arrays.asList(properties.getProtocols()))).apiInfo(apiInfo)
+				.useDefaultResponseMessages(properties.isUseDefaultResponseMessages()).forCodeGeneration(true).directModelSubstitute(ByteBuffer.class, String.class)
+				.genericModelSubstitutes(ResponseEntity.class).ignoredParameterTypes(Pageable.class).select()
+				.apis(RequestHandlerSelectors.basePackage("com.nuri.social.web.api")).paths(regex(properties.getDefaultIncludePattern())).build();
+	}
 }

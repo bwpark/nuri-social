@@ -1,21 +1,23 @@
 package com.nuri.social.repository;
 
-import com.nuri.social.domain.PersistentAuditEvent;
 import java.time.Instant;
 import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.nuri.social.domain.PersistentAuditEvent;
 
 /**
  * Spring Data MongoDB repository for the {@link PersistentAuditEvent} entity.
  */
 public interface PersistenceAuditEventRepository extends MongoRepository<PersistentAuditEvent, String> {
-    List<PersistentAuditEvent> findByPrincipal(String principal);
+	List<PersistentAuditEvent> findByPrincipal(String principal);
 
-    List<PersistentAuditEvent> findByPrincipalAndAuditEventDateAfterAndAuditEventType(String principal, Instant after, String type);
+	List<PersistentAuditEvent> findByPrincipalAndAuditEventDateAfterAndAuditEventType(String principal, Instant after, String type);
 
-    Page<PersistentAuditEvent> findAllByAuditEventDateBetween(Instant fromDate, Instant toDate, Pageable pageable);
+	Page<PersistentAuditEvent> findAllByAuditEventDateBetween(Instant fromDate, Instant toDate, Pageable pageable);
 
-    List<PersistentAuditEvent> findByAuditEventDateBefore(Instant before);
+	List<PersistentAuditEvent> findByAuditEventDateBefore(Instant before);
 }

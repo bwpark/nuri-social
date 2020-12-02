@@ -1,28 +1,30 @@
 package com.nuri.social.repository;
 
-import com.nuri.social.domain.User;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
+
+import com.nuri.social.domain.User;
 
 /**
  * Spring Data MongoDB repository for the {@link User} entity.
  */
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    Optional<User> findOneByActivationKey(String activationKey);
+	Optional<User> findOneByActivationKey(String activationKey);
 
-    List<User> findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant dateTime);
+	List<User> findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant dateTime);
 
-    Optional<User> findOneByResetKey(String resetKey);
+	Optional<User> findOneByResetKey(String resetKey);
 
-    Optional<User> findOneByEmailIgnoreCase(String email);
+	Optional<User> findOneByEmailIgnoreCase(String email);
 
-    Optional<User> findOneByLogin(String login);
+	Optional<User> findOneByLogin(String login);
 
-    Page<User> findAllByLoginNot(Pageable pageable, String login);
+	Page<User> findAllByLoginNot(Pageable pageable, String login);
 }

@@ -1,119 +1,48 @@
 package com.nuri.social.service.dto;
 
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.nuri.social.domain.enumeration.RegularStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * A DTO for the {@link com.nuri.social.domain.Regular} entity.
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class RegularDTO implements Serializable {
-    
-    private String id;
 
-    @NotNull
-    @Size(max = 128)
-    private String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    private RegularStatus status;
+	private String id;
 
-    @NotNull
-    private Instant created;
+	@NotNull
+	@Size(max = 128)
+	private String name;
 
-    @NotNull
-    private Instant modified;
+	@NotNull
+	private RegularStatus status;
 
+	@NotNull
+	private Instant created;
 
-    private String youId;
+	@NotNull
+	private Instant modified;
 
-    private String meId;
-    
-    public String getId() {
-        return id;
-    }
+	private String youId;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public RegularStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(RegularStatus status) {
-        this.status = status;
-    }
-
-    public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
-
-    public Instant getModified() {
-        return modified;
-    }
-
-    public void setModified(Instant modified) {
-        this.modified = modified;
-    }
-
-    public String getYouId() {
-        return youId;
-    }
-
-    public void setYouId(String avatarId) {
-        this.youId = avatarId;
-    }
-
-    public String getMeId() {
-        return meId;
-    }
-
-    public void setMeId(String avatarId) {
-        this.meId = avatarId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof RegularDTO)) {
-            return false;
-        }
-
-        return id != null && id.equals(((RegularDTO) o).id);
-    }
-
-    @Override
-    public int hashCode() {
-        return 31;
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "RegularDTO{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", status='" + getStatus() + "'" +
-            ", created='" + getCreated() + "'" +
-            ", modified='" + getModified() + "'" +
-            ", youId='" + getYouId() + "'" +
-            ", meId='" + getMeId() + "'" +
-            "}";
-    }
+	private String meId;
 }

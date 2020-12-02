@@ -4,19 +4,18 @@ package com.nuri.social.domain.enumeration;
  * The ReportStatus enumeration.
  */
 public enum ReportStatus {
-    ORIGINATE,
-    TAKEOVER("접수"),
-    COMPLETED("완료");
+	ORIGINATE, TAKEOVER("접수"), COMPLETED("완료");
 
-    private String value;
+	private String value;
 
-    ReportStatus() {}
+	ReportStatus() {
+	}
 
-    ReportStatus(String value) {
-        this.value = value;
-    }
+	ReportStatus(String value) {
+		this.value = value;
+	}
 
-    public String getValue() {
-        return value;
-    }
+	public String getValue() {
+		return value;
+	}
 }

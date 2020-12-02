@@ -1,134 +1,55 @@
 package com.nuri.social.service.dto;
 
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.Instant;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.nuri.social.domain.enumeration.CategoryStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * A DTO for the {@link com.nuri.social.domain.AvatarCategory} entity.
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class AvatarCategoryDTO implements Serializable {
-    
-    private String id;
 
-    @NotNull
-    @Size(max = 128)
-    private String path;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    @Size(max = 128)
-    private String name;
+	private String id;
 
-    @Size(max = 1024)
-    private String icon;
+	@NotNull
+	@Size(max = 128)
+	private String path;
 
-    @Size(max = 1024)
-    private String description;
+	@NotNull
+	@Size(max = 128)
+	private String name;
 
-    @NotNull
-    private CategoryStatus status;
+	@Size(max = 1024)
+	private String icon;
 
-    @NotNull
-    private Instant created;
+	@Size(max = 1024)
+	private String description;
 
-    @NotNull
-    private Instant modified;
+	@NotNull
+	private CategoryStatus status;
 
-    
-    public String getId() {
-        return id;
-    }
+	@NotNull
+	private Instant created;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	@NotNull
+	private Instant modified;
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public CategoryStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(CategoryStatus status) {
-        this.status = status;
-    }
-
-    public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
-
-    public Instant getModified() {
-        return modified;
-    }
-
-    public void setModified(Instant modified) {
-        this.modified = modified;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof AvatarCategoryDTO)) {
-            return false;
-        }
-
-        return id != null && id.equals(((AvatarCategoryDTO) o).id);
-    }
-
-    @Override
-    public int hashCode() {
-        return 31;
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "AvatarCategoryDTO{" +
-            "id=" + getId() +
-            ", path='" + getPath() + "'" +
-            ", name='" + getName() + "'" +
-            ", icon='" + getIcon() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", status='" + getStatus() + "'" +
-            ", created='" + getCreated() + "'" +
-            ", modified='" + getModified() + "'" +
-            "}";
-    }
 }
